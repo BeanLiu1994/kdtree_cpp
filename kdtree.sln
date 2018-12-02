@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kdtree", "kdtree\kdtree.vcxproj", "{00D7BC14-C0AE-44CD-A4B1-2B65CC240A95}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kdtree_test", "kdtree_test\kdtree_test.vcxproj", "{B52C3613-C70D-4C6A-8566-BCE35C2161B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,12 @@ Global
 		{00D7BC14-C0AE-44CD-A4B1-2B65CC240A95}.Release|x64.Build.0 = Release|x64
 		{00D7BC14-C0AE-44CD-A4B1-2B65CC240A95}.Release|x86.ActiveCfg = Release|Win32
 		{00D7BC14-C0AE-44CD-A4B1-2B65CC240A95}.Release|x86.Build.0 = Release|Win32
+		{B52C3613-C70D-4C6A-8566-BCE35C2161B6}.Debug|x64.ActiveCfg = Debug|x64
+		{B52C3613-C70D-4C6A-8566-BCE35C2161B6}.Debug|x64.Build.0 = Debug|x64
+		{B52C3613-C70D-4C6A-8566-BCE35C2161B6}.Debug|x86.ActiveCfg = Debug|x64
+		{B52C3613-C70D-4C6A-8566-BCE35C2161B6}.Release|x64.ActiveCfg = Release|x64
+		{B52C3613-C70D-4C6A-8566-BCE35C2161B6}.Release|x64.Build.0 = Release|x64
+		{B52C3613-C70D-4C6A-8566-BCE35C2161B6}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
