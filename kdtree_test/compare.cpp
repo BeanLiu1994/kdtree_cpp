@@ -2,6 +2,8 @@
 #include <vector>
 #include "time_utility.h"
 #include "kdtree.h"
+
+#define FLANN_USE_CUDA
 #include <flann/flann.hpp>
 using namespace flann;
 
@@ -74,12 +76,12 @@ std::vector<ValType> run_flann(const std::vector<ValMemType>& test_data, const s
 	Matrix<float> dists(new float[query.rows], query.rows, 1);
 
 	Timer<> timer;
-	Index<L2<float> > index(dataset, flann::KDTreeSingleIndexParams());
+	KDTreeCuda3dIndex<L2<float> > index(dataset, flann::KDTreeCuda3dIndexParams(1));
 	index.buildIndex();
 	timer.EndTimer("FLANN BUILD TIME:");
 
 	timer.StartTimer();
-	index.knnSearch(query, indices, dists, 1, flann::SearchParams(-1));
+	index.knnSearchGpu(query, indices, dists, 1, flann::SearchParams(-1));
 	timer.EndTimer("FLANN QUERY TIME:");
 
 	std::vector<ValType> ret;
@@ -111,7 +113,7 @@ int main()
 	Timer<> timer;
 	for (int i = 0; i < query_data.size(); ++i)
 	{
-		if (std::abs(EuclideanDistance(ret[i], query_data[i]) - EuclideanDistance(ret_ref[i], query_data[i]))> 1e-6)
+		if (std::abs(EuclideanDistance(ret[i], query_data[i]) - EuclideanDistance(ret_ref[i], query_data[i])) > 1e-6)
 		{
 			//static std::string DrawScript = root.GenerateMatlabScript({ 0,mod_n }, { 0,mod_n });
 			std::cout << i + 1 << "-th query didn't match." << std::endl;

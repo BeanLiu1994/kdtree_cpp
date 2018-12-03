@@ -39,7 +39,7 @@ public:
 	{
 		return getData()[pos];
 	}
-	void swap(DataType& rhs) 
+	void swap(DataType& rhs)
 	{
 		using std::swap;
 		if (this->data != rhs.data)
@@ -54,7 +54,7 @@ public:
 	{
 		return dimensions;
 	}
-}; 
+};
 
 template<typename ValType1, typename ValType2>
 inline double EuclideanDistance(const ValType1& p1, const ValType2& p2)
@@ -218,7 +218,7 @@ private:
 	{
 		if (!tree_root)
 			return std::make_pair(nullptr, -1);
-		
+
 		std::stack<NodeType*> path;
 		NodeType* nearest = tree_root;
 		while (nearest)
@@ -283,7 +283,7 @@ private:
 		StringToAppend += "scatter(" + std::to_string(node->val[0]) + "," + std::to_string(node->val[1]) + ",'ro');\n";
 		//添加文字描述
 		StringToAppend += "text(" + std::to_string(node->val[0] + 5) + "," + std::to_string(node->val[1]) + ",'" +
-			std::to_string(node->val.GetInd()) + "_" + std::to_string(depth) + 
+			std::to_string(node->val.GetInd()) + "_" + std::to_string(depth) +
 			"');\n";
 		//画分割线
 		if (node->split_dim == 0)
@@ -291,7 +291,7 @@ private:
 			StringToAppend += "line([" +
 				std::to_string(node->val[0]) + "," +
 				std::to_string(node->val[0]) +
-				"],["+
+				"],[" +
 				std::to_string(y_range[0]) + "," +
 				std::to_string(y_range[1]) +
 				"]" + LineColor + ");\n";
@@ -299,7 +299,7 @@ private:
 			GenerateMatlabScript_recu(node->children[0], { x_range[0], node->val[0] }, y_range, StringToAppend, depth + 1);
 			GenerateMatlabScript_recu(node->children[1], { node->val[0], x_range[1] }, y_range, StringToAppend, depth + 1);
 		}
-		else 
+		else
 		{
 			StringToAppend += "line([" +
 				std::to_string(x_range[0]) + "," +

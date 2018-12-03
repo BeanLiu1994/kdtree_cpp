@@ -18,6 +18,9 @@
     <ClInclude Include="kdtree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="time_utility.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="kdtree.cpp">
